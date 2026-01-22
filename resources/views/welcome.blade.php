@@ -16,7 +16,11 @@
 
         <div class="w-full flex flex-col items-center justify-center">
             <div class="flex flex-col items-center max-w-2xl w-full">
-                <img src="{{ asset('349044140_9656575497715700_8175528462559636296_n[1].png') }}" alt="Logo" class=" h-36 w-auto">
+                <div class="h-36 flex items-center justify-center">
+                    <h2 class="text-5xl md:text-6xl font-black tracking-tighter text-[#239BA7]">
+                        e-Farm<span class="text-slate-800">queue</span>
+                    </h2>
+                </div>
                 <h1 class="text-center mb-2 text-2xl md:text-3xl font-bold text-[#239BA7] leading-tight">
                     Klinik Pratama Annisa Medika 1
                 </h1>

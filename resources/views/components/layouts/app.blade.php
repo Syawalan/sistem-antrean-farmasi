@@ -16,8 +16,9 @@
         @auth
             <aside class="w-72 bg-white border-r border-gray-100 hidden md:flex flex-col">
                 <div class="items-center flex gap-3 py-4">
-                    <img src="{{ asset('349044140_9656575497715700_8175528462559636296_n[1].png') }}" alt="Logo"
-                        class="w-auto h-20 pl-4">
+                    <h2 class="text-5xl md:px-6 md:text-3xl font-black tracking-tighter text-[#239BA7]">
+                        e-Farm<span class="text-slate-800">queue</span>
+                    </h2>
                 </div>
 
                 <nav class="flex-1 px-4 space-y-2 overflow-y-auto">
@@ -76,7 +77,7 @@
                 class="fixed inset-0 z-50 md:hidden bg-white w-72 h-full shadow-2xl flex flex-col">
 
                 <div class="flex items-center justify-between p-4 border-b">
-                    <span class="font-black text-[#30B5F9]">AnnisaMedika1</span>
+                    <span class="font-black text-[#30B5F9]">e-Farmqueue</span>
                     <button @click="openMobileMenu = false" class="text-gray-500 p-2">
                         <i class="bi bi-x-lg text-xl"></i>
                     </button>
@@ -128,12 +129,16 @@
 
             @guest
                 <nav class="hidden md:flex bg-white border-b px-10 py-4 items-center justify-between sticky top-0 z-30">
-                    <img src="{{ asset('349044140_9656575497715700_8175528462559636296_n[1].png') }}" class="h-12 w-auto">
+                    <h2 class="text-5xl md:px-6 md:text-3xl font-black tracking-tighter text-[#239BA7]">
+                        e-Farm<span class="text-slate-800">queue</span>
+                    </h2>
                     <div class="flex gap-8">
                         <a href="{{ route('queue.status') }}"
                             class="font-bold {{ request()->routeIs('queue.status') ? 'text-[#30B5F9]' : 'text-gray-500' }}">Beranda</a>
-                        <a href="{{ route('patient.detail') }}" class="font-bold text-gray-500 hover:text-[#30B5F9]">Detail Antrean</a>
-                        <a href="{{ route('patient.medicine') }}" class="font-bold text-gray-500 hover:text-[#30B5F9]">Obat</a>
+                        <a href="{{ route('patient.detail') }}" class="font-bold text-gray-500 hover:text-[#30B5F9]">Detail
+                            Antrean</a>
+                        <a href="{{ route('patient.medicine') }}"
+                            class="font-bold text-gray-500 hover:text-[#30B5F9]">Obat</a>
                     </div>
                     <div></div>
                 </nav>
