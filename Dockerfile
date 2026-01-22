@@ -33,4 +33,4 @@ RUN composer dump-autoload --optimize
 EXPOSE 8080
 
 # Use php artisan serve instead of FrankenPHP for simplicity
-CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8080
+CMD php artisan migrate --force && php artisan db:seed --force && php artisan serve --host=0.0.0.0 --port=8080
