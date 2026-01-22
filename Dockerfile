@@ -29,14 +29,8 @@ RUN mkdir -p storage/framework/{sessions,views,cache,testing} storage/logs boots
 # Run composer scripts
 RUN composer dump-autoload --optimize
 
-# Create Caddyfile for FrankenPHP
-RUN echo ':${PORT:-8080} {\n\
-    root * /app/public\n\
-    php_server\n\
-}' > /etc/caddy/Caddyfile
-
 # Expose port
 EXPOSE 8080
 
-# Start command
-CMD php artisan migrate --force && frankenphp run --config /etc/caddy/Caddyfile
+# Use php artisan serve instead of FrankenPHP for simplicity
+CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8080
