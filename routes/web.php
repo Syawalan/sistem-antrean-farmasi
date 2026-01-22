@@ -37,7 +37,7 @@ Route::prefix('pasien')->group(function() {
     Route::get('/obat', MedicineList::class)->name('patient.medicine');
 });
 
-Route::get('/status-antrean', QueueStatus::class)->name('queue.status');
+Route::get('/status-antrean', QueueStatus::class)->name('queue.status.public');
 Route::get('/monitor', Display::class)->name('monitor');
 
 Route::get('/login', Login::class)->name('login');
