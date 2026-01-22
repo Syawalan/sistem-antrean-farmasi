@@ -10,29 +10,23 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
 # Set working directory
 WORKDIR /app
 
-# Copy composer files first
-COPY composer.json composer.lock ./
-
 # Install composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Copy all application files first (needed for Vite build)
+COPY . .
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader --no-scripts
 
-# Copy package files
-COPY package*.json ./
-
-# Install Node dependencies and build
+# Install Node dependencies and build assets
 RUN npm ci && npm run build && rm -rf node_modules
-
-# Copy the rest of the application
-COPY . .
 
 # Set permissions
 RUN mkdir -p storage/framework/{sessions,views,cache,testing} storage/logs bootstrap/cache && \
     chmod -R 777 storage bootstrap/cache
 
-# Run composer scripts after copying all files
+# Run composer scripts
 RUN composer dump-autoload --optimize
 
 # Create Caddyfile for FrankenPHP
