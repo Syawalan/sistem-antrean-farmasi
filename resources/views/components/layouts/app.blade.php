@@ -128,6 +128,7 @@
         <div class="flex-1 flex flex-col min-w-0">
 
             @guest
+            @if(request()->routeIs(['queue.status', 'patient.detail', 'patient.medicine']))
                 <nav class="hidden md:flex bg-white border-b px-10 py-4 items-center justify-between sticky top-0 z-30">
                     <h2 class="text-5xl md:px-6 md:text-3xl font-black tracking-tighter text-[#239BA7]">
                         e-Farm<span class="text-slate-800">queue</span>
@@ -142,6 +143,7 @@
                     </div>
                     <div></div>
                 </nav>
+            @endif
             @endguest
 
             <header class="md:hidden bg-white border-b px-6 py-4 flex items-center justify-between sticky top-0 z-30">
@@ -160,11 +162,12 @@
                 {{ $slot }}
 
                 <footer class="text-center mt-10 py-4 text-gray-500 text-xs">
-                    &copy; {{ date('Y') }} Klinik Pratama Annisa Medika 1. All rights reserved.
+                    &copy; {{ date('Y') }} e-Farmqueue. All rights reserved.
                 </footer>
             </main>
 
             @guest
+            @if(request()->routeIs(['queue.status', 'patient.detail', 'patient.medicine']))
                 <div
                     class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t flex justify-around items-center py-3 z-50 shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
                     <a href="{{ route('queue.status') }}"
@@ -181,6 +184,7 @@
                         <span class="text-[10px] font-bold">Obat</span>
                     </a>
                 </div>
+            @endif
             @endguest
         </div>
     </div>

@@ -3,8 +3,10 @@
         class="bg-white w-full max-w-[480px] rounded-[32px] border border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.05)] p-8">
 
         <div class="flex flex-col items-center mb-4">
-            <div class="flex items-center gap-2 mb-3">
-                <span class="text-2xl font-extrabold text-[#30B5F9] tracking-tight">Klinik Pratama Annisa Medika 1</span>
+            <div class="w-full flex items-center justify-between gap-2 mb-3">
+                <a href="/" class="w-10"><i class="bi bi-arrow-left text-xl"></i></a>
+                <span class="text-2xl font-extrabold text-[#30B5F9] tracking-tight">e-Farmqueue</span>
+                <div class="w-10"></div>
             </div>
             <h1 class="text-2xl font-bold text-gray-800">Login</h1>
         </div>
@@ -35,7 +37,7 @@
         </form>
 
         <p class="text-center text-gray-400 text-sm pt-4">
-            © 2026 Klinik Pratama Annisa Medika 1. All rights reserved.
+            © 2026 e-Farmqueue. All rights reserved.
         </p>
     </div>
 </div>

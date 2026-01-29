@@ -16,23 +16,31 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $loket1 = Counter::create(['name' => 'Loket Umum 1', 'slug' => 'loket-umum-1']);
+        $loket1 = Counter::updateOrCreate(
+            ['slug' => 'loket-umum-1'],
+            ['name' => 'Loket Umum 1']
+        );
 
-        User::create([
-            'name' => 'Administrator Utama',
-            'email' => 'admin@farmasi.com',
-            'password' => Hash::make('password'),
-            'role' => 'admin',
-            'counter_id' => null,
-        ]);
+        // 2. Gunakan updateOrCreate untuk Admin
+        User::updateOrCreate(
+            ['email' => 'admin@farmasi.com'],
+            [
+                'name' => 'Administrator Utama',
+                'password' => Hash::make('password'),
+                'role' => 'admin',
+                'counter_id' => null,
+            ]
+        );
 
-        User::create([
-            'name' => 'Budi Petugas',
-            'email' => 'budi@farmasi.com',
-            'password' => Hash::make('password'),
-            'role' => 'staff',
-            'counter_id' => $loket1->id,
-        ]);
+        User::updateOrCreate(
+            ['email' => 'budi@farmasi.com'],
+            [
+                'name' => 'Budi Petugas',
+                'password' => Hash::make('password'),
+                'role' => 'staff',
+                'counter_id' => $loket1->id,
+            ]
+        );
 
         $medicines = [
             [
@@ -46,49 +54,52 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name'     => 'Amoxicillin 500mg',
-                'code'     => 'AMX001',
-                'stok'     => 50,
+                'name' => 'Amoxicillin 500mg',
+                'code' => 'AMX001',
+                'stok' => 50,
                 'golongan' => 'obat keras',
                 'indikasi' => 'Antibiotik untuk infeksi bakteri saluran pernapasan dan kulit.',
-                'harga'    => 12000,
+                'harga' => 12000,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name'     => 'Vitamin C 1000mg',
-                'code'     => 'VITC01',
-                'stok'     => 200,
+                'name' => 'Vitamin C 1000mg',
+                'code' => 'VITC01',
+                'stok' => 200,
                 'golongan' => 'obat bebas',
                 'indikasi' => 'Membantu menjaga daya tahan tubuh dan memulihkan kondisi setelah sakit.',
-                'harga'    => 15000,
+                'harga' => 15000,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name'     => 'Obat Batuk Sirup',
-                'code'     => 'OBS001',
-                'stok'     => 30,
+                'name'  => 'Obat Batuk Sirup',
+                'code'  => 'OBS001',
+                'stok'  => 30,
                 'golongan' => 'obat bebas terbatas',
                 'indikasi' => 'Meredakan batuk berdahak dan melegakan tenggorokan.',
-                'harga'    => 25000,
+                'harga' => 25000,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name'     => 'Asam Mefenamat 500mg',
-                'code'     => 'ASM001',
-                'stok'     => 75,
+                'name' => 'Asam Mefenamat 500mg',
+                'code' => 'ASM001',
+                'stok' => 75,
                 'golongan' => 'obat keras',
                 'indikasi' => 'Meredakan nyeri hebat seperti sakit gigi dan nyeri haid.',
-                'harga'    => 8000,
+                'harga' => 8000,
                 'created_at' => now(),
                 'updated_at' => now(),
-            ],
+            ]
         ];
 
         foreach ($medicines as $med) {
-            Medicine::create($med);
+            Medicine::updateOrCreate(
+                ['code' => $med['code']],
+                $med
+            );
         }
     }
 }
