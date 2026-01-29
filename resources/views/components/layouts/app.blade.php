@@ -150,7 +150,9 @@
                         <i class="bi bi-list text-2xl"></i>
                     </button>
                 @endauth
-                <img src="{{ asset('349044140_9656575497715700_8175528462559636296_n[1].png') }}" class="h-10 w-auto">
+                <h2 class="text-xl md:px-6 md:text-3xl font-black tracking-tighter text-[#239BA7]">
+                    e-Farm<span class="text-slate-800">queue</span>
+                </h2>
                 <div class="w-8"></div>
             </header>
 
